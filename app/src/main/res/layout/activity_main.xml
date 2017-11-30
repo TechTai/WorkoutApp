@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="nyc.c4q.workoutapp.MainActivity">
+    <!-- Since the "tools" code isn't needed - i copied the context info to be used in the "fragment - class:" -->
+
+
+    <!-- Step 2 - Part 1
+         Following the creation of the WorkoutListFragment and its enclosed ArrayAdapter;
+         the below fragment is added to the layout along with the adjustment for layout weight so the fragments display side by side on devices
+         It will first display the workouts-->
+    <fragment
+        class="nyc.c4q.workoutapp.WorkoutListFragment"
+        android:id="@+id/list_frag"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"/>
+
+    <!-- Step 1
+         This is the standard fragment format which should be updated within the activity_main xml
+         This is the first fragment added before the update to display the WorkoutListFragment and layout weight-->
+   <!--<fragment-->
+       <!--class="nyc.c4q.workoutapp.WorkoutDetailFragment"-->
+       <!--android:id="@+id/detail_frag"-->
+       <!--android:layout_width="0dp"-->
+       <!--android:layout_height="match_parent"-->
+       <!--android:layout_weight="3"/>-->
+    <!-- Step 2 - Part 2
+         The layout width is updated from "match_parent" to "0dp" and the layout weight is added -->
+    <!-- This update allows the creation of the fragment and made the activity display it in its layout. The fragment doesnt actually do anything currently.
+         So the next step is to get the activity to say which workout to display and get the fragment to populate its views with details of the workout. -->
+
+    <!-- Step 3 - Replacing the original WorkoutDetailFragment in order to properly use the back button within the app which will allow the app to store the fragment replacement
+         inside a back stack transactio and the user will be able to undo the change.
+         Displaying the fragment inside a FrameLayout will allow the app to control its contents programmatically because its a type of view group that's used to block out an area on the screen-->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"/>
+
+</LinearLayout>
